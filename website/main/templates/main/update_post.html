@@ -1,0 +1,9 @@
+{%extends "main/base.html"%}
+{%block title%}Update the Post {%endblock%}
+{%load crispy_forms_tags%}
+{%block content%}
+<form class='update-post' method="post">
+{% csrf_token %}{{form|crispy}}
+<button type="submit" class="btn btn-success">Update</button>
+</form>
+{%endblock%}

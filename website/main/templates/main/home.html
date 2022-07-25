@@ -12,16 +12,23 @@
         </div>
         <div>
             {%if user == post.author or perms.main.delete_post%}
-                <form method = "post">
+                <form class = 'manage-button' method = "post">
                     {%csrf_token%}
                     <button type="submit" class = "btn btn-danger" name="post-id" value= "{{post.id}}"> Delete </button>
                 </form>
             {%endif%}
             {% if user.is_staff%}
-            <for method = "post">
+            <form class = 'manage-button' method = "post">
                 {%csrf_token%}
                 <button type="submit" class = "btn btn-warning" name="user-id" value= "{{post.author.id}}"> Ban User </button>
-            </for
+            </form>
+            {%endif%}
+
+            {% if user == post.author %}
+            <form class='manage-button' method = "post">
+                {%csrf_token%}
+                <button type="submit" class = "btn btn-info" name="update-post-id" value= "{{post.id}}"> Update </button>
+            </form>
             {%endif%}
         </div>
     </div>
