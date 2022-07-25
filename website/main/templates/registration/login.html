@@ -2,9 +2,12 @@
 {%block title%}Login {%endblock%}
 {%load crispy_forms_tags%}
 {%block content%}
-<form method="post">
-{% csrf_token %}{{form|crispy}}
-<p> Don't have an account? Create one <a href="/sign-up">HERE</a></p>
-<button type="submit" class="btn btn-success">Login</button>
-</form>
+<div > 
+  <form class='login-form' method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <p> Don't have an account? Create one <a href="/sign-up">HERE</a></p>
+    <button type="submit" class="btn btn-success">Login</button>
+  </form>
+</div>
 {%endblock%}
